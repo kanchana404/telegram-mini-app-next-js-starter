@@ -1,4 +1,4 @@
-import { Loader } from "@/components/loader";
+import { Loader } from "../loader";
 
 export function TmaProviderLoading() {
   return (
