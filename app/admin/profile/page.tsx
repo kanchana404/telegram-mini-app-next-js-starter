@@ -1,10 +1,11 @@
 'use client';
 
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from 'next/link';
+import { Button } from '../../../components/ui/button';
+import { Card, CardContent } from '../../../components/ui/card';
 
 const SellerProfile = () => {
   return (

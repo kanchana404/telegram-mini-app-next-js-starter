@@ -1,12 +1,13 @@
 'use client';
 
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Card, CardContent } from '../../../../components/ui/card';
+import { Input } from '../../../../components/ui/input';
+import { Button } from '../../../../components/ui/button';
 
 const EditShopProfile = () => {
   const router = useRouter();
