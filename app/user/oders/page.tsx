@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from 'next/link';
+import { Card, CardContent } from '../../../components/ui/card';
+import { Button } from '../../../components/ui/button';
 
 interface Order {
     id: string;

@@ -1,7 +1,5 @@
 // database/models/Product.ts
 
-// database/models/Product.ts
-
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
 // Define the interface for the Product document
@@ -25,7 +23,7 @@ const ProductSchema: Schema<IProduct> = new Schema(
       trim: true,
     },
     category: {
-      type: mongoose.Types.ObjectId,
+      type: Schema.Types.ObjectId, // Corrected to Schema.Types.ObjectId
       ref: 'Category',
       required: true,
     },

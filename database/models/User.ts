@@ -1,5 +1,8 @@
+// database/models/User.ts
+
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
+// Define the interface for the User document
 export interface IUser extends Document {
   telegramId: string;
   username: string | null;
@@ -17,19 +20,19 @@ export interface IUser extends Document {
   updatedAt: Date;
 }
 
-// Create the schema
+// Create the schema for the User model
 const UserSchema = new Schema<IUser>(
   {
     telegramId: {
       type: String,
       required: true,
       unique: true,
-      index: true,
+      index: true, // Ensure fast lookups by telegramId
     },
     username: {
       type: String,
       default: null,
-      sparse: true,
+      sparse: true, // Allow unique values even if username is null
     },
     firstName: {
       type: String,
@@ -77,15 +80,16 @@ const UserSchema = new Schema<IUser>(
   }
 );
 
-// Add error handling for duplicate key errors
-UserSchema.post('save', function(error: any, doc: any, next: any) {
+// Post-save hook for handling duplicate key errors
+UserSchema.post('save', function (error: any, doc: any, next: any) {
   if (error.name === 'MongoServerError' && error.code === 11000) {
-    next(new Error('Telegram ID must be unique'));
+    // Duplicate key error (e.g., telegramId already exists)
+    next(new Error('A user with this Telegram ID already exists.'));
   } else {
     next(error);
   }
 });
 
-// Create and export the model
-export const User = (mongoose.models.User as Model<IUser>) || 
-  mongoose.model<IUser>('User', UserSchema);
+// Export the User model, preventing recompilation in watch mode
+export const User: Model<IUser> =
+  mongoose.models.User || mongoose.model<IUser>('User', UserSchema);

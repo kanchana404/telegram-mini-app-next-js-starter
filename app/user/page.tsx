@@ -1,10 +1,11 @@
 "use client"
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+
 import { ArrowLeft, Package, ChevronRight } from "lucide-react";
 import Link from 'next/link';
+import { Card, CardContent } from '../../components/ui/card';
+import { Button } from '../../components/ui/button';
+import { Input } from '../../components/ui/input';
 
 const EditProfile = () => {
     const [profile, setProfile] = React.useState({
