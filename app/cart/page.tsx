@@ -1,8 +1,10 @@
 "use client"
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+
 import { Minus, Plus } from "lucide-react";
+import { Card, CardContent } from '../../components/ui/card';
+import { Button } from '../../components/ui/button';
+import Link from 'next/link';
 
 interface CartItem {
   id: number;
@@ -62,7 +64,7 @@ const ShoppingCart = () => {
       <Card className="bg-white rounded-t-3xl shadow-lg">
         <CardContent className="p-6">
           <h1 className="text-2xl font-bold mb-6">MY CART</h1>
-          
+
           <div className="space-y-4">
             {cartItems.map((item) => (
               <div key={item.id} className="flex items-center p-4 bg-white rounded-lg border">
@@ -73,10 +75,10 @@ const ShoppingCart = () => {
                     className="w-full h-auto"
                   />
                 </div>
-                
+
                 <div className="flex-grow mx-4">
                   <h3 className="text-sm font-medium">{item.name}</h3>
-                  
+
                   <div className="flex items-center mt-2 space-x-2">
                     <Button
                       variant="outline"
@@ -86,9 +88,9 @@ const ShoppingCart = () => {
                     >
                       <Minus className="h-4 w-4" />
                     </Button>
-                    
+
                     <span className="w-8 text-center">{item.quantity}</span>
-                    
+
                     <Button
                       variant="outline"
                       size="icon"
@@ -99,7 +101,7 @@ const ShoppingCart = () => {
                     </Button>
                   </div>
                 </div>
-                
+
                 <div className="text-right">
                   <span className="text-green-500 font-semibold">
                     {item.price}$
@@ -114,10 +116,12 @@ const ShoppingCart = () => {
               <span>items: {totalItems}</span>
               <span className="font-medium">Total: <span className="text-green-500">{totalPrice}$</span></span>
             </div>
-            
-            <Button className="w-full mt-4 bg-red-600 hover:bg-red-700 text-white">
-              Check out
-            </Button>
+
+            <Link href="/checkout">
+              <Button className="w-full mt-4 bg-red-600 hover:bg-red-700 text-white">
+                Check out
+              </Button>
+            </Link>
           </div>
         </CardContent>
       </Card>

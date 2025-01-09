@@ -2,16 +2,17 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+
 import { ArrowLeft, Upload, Plus, Minus } from "lucide-react";
 import Link from 'next/link';
-import { UploadButton } from '@/utils/uploadthing';
 import axios from 'axios';
+import { UploadButton } from '../../../utils/uploadthing';
+import { Button } from '../../../components/ui/button';
+import { Card, CardContent } from '../../../components/ui/card';
+import { Input } from '../../../components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../components/ui/select';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../../../components/ui/dialog';
+import { Textarea } from '../../../components/ui/textarea';
 
 const ManageProduct = () => {
   const [title, setTitle] = useState("");
